@@ -7,7 +7,7 @@ vinoShipperInjector = (function(window) {
     disableResize: window.vsDisableResize ? window.vsDisableResize : false,
     server: detectServer(),
     clientCss: detectClientCSSOverride(),
-    injectorCss: detectServer() + "/static/css/iframe/v2/injector.css",
+    injectorCss: "https://vinoshipper.com/static/css/iframe/v2/injector.css",
     defaultIFramePadding: 100,
     defaultClubSignUpCallback: function() {
       vsLog("Club Sign Up Complete");
