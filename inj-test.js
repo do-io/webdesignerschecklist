@@ -398,7 +398,7 @@ vinoShipperInjector = (function(window) {
     }
 
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", config.server + "/json-api/v2/cart/" + cartId, false);
+    xhr.open("GET", "https://vinoshipper.com/json-api/v2/cart/" + cartId, false);
     xhr.send(null);
 
     if (!xhr.responseText) {
@@ -415,7 +415,7 @@ vinoShipperInjector = (function(window) {
 
   function addItemToCart(productId, quantity, landingPage) {
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", config.server + "/iframe/v2/cart/add?cartId=" + module.sessionid, false);
+    xhr.open("POST", "https://vinoshipper.com/iframe/v2/cart/add?cartId=" + module.sessionid, false);
     xhr.onload = showCart;
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.send("id=" + productId + "&quantity=" + quantity + "&landingPage=" + landingPage);
