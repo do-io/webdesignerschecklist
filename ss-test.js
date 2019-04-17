@@ -21,18 +21,18 @@ class vsSquarespace {
   getContents() {
     switch (this.targetId) {
       case "vs-winelist":
-        vsWineList.init(this.targetId);
+        vsWineList.init(this.targetId,1);
         break;
       case "vs-wineclub":
-        vsWineClub.init(this.targetId);
+        vsWineClub.init(this.targetId,1);
         break;
       default:
         switch (this.type) {
           case "club":
-            vsWineClub.init(this.targetId);
+            vsWineClub.init(this.targetId,1);
             break;
           case "list":
-            vsWineList.init(this.targetId);
+            vsWineList.init(this.targetId,1);
             break;
         }
     }
