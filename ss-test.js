@@ -39,20 +39,6 @@ class vsSquarespace {
   }
 }
 
-document.addEventListener("pageChange", () => {
-  let title = document.getElementsByTagName("h1")[0].innerHTML;
-  if (title == this.getTitle()) {
-    vsSS.getContents();
-  }
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-  let title = document.getElementsByTagName("h1")[0].innerHTML;
-  if (title == this.getTitle()) {
-    vsSS.getContents();
-  }
-});
-
 function watch() {
   MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
   var a = new MutationObserver(function(a) {
