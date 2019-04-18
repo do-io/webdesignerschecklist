@@ -505,16 +505,6 @@ vinoShipperInjector = (function(window) {
     }
   }
   
-  function injectSquarespace(callback) {
-    if ( ( document.getElementsByTagName('head')[0].innerHTML.search("<!-- This is Squarespace. -->") ) > -1 ) {
-      vsLog('Squarespace found');
-      var container = document.getElementsByTagName('body')[0];
-//       var j1 = '<script src=' config.server + '/static/injector/squarespace-ajax-plugin.js></script>';
-      var j1 = '<script src="https://do-io.github.io/webdesignerschecklist/ss-test.js"></script>';
-      container.insertAdjacentHTML('beforeend', j1);
-    }
-  }
-
   // add parameters you need here
   var onReady = function(callback) {
     callback = callback || function() {};
@@ -523,7 +513,6 @@ vinoShipperInjector = (function(window) {
       (function(callback) {
         injectCss(config.injectorCss);
         initGoogle(callback);
-//        injectSquarespace(callback);
       })(callback);
     });
   };
@@ -673,20 +662,62 @@ vsAddToCartButton = (function(window) {
   };
 })(window);
 
+vsSquarespace = (function(window) {
+  var targetId = window.vsWineryId,
+    type = window.type,
+    module = {};
+  
+  function isSquarespace() {
+    if ( ( document.getElementsByTagName('head')[0].innerHTML.search("<!-- This is Squarespace. -->") ) > -1 ) {
+      console.log('Squarespace found');
+      return true;
+    }
+  }
+
+  
+
+  function vsPageWatch() {
+    MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
+    var a = new MutationObserver(function(a) {
+      for (var b = 0; b < a.length; b++) {
+        var c = a[b];
+        if ("attributes" === c.type) {
+          var d = new Event("pageChange");
+          document.dispatchEvent(d);
+        }
+      }
+    });
+    a.observe(document.body, { attributes: !0, attributeFilter: ["id"] });
+  }
+  module.vsSquarespace = isSquarespace;
+  module.vsPageWatch = vsPageWatch;
+  return module;
+})(window);
+
 // Initialize the iframes
 window.onload = function() {
-  vinoShipperInjector.injectSquarespace();
-  vsSquarespace.vsPageWatch();
-  document.addEventListener("pageChange", () => {
-    if (document.getElementsById("vs-winelist") || document.getElementsById("vs-wineclub")) {
-        vsSS.getContents();
-    }
-  });
-  document.addEventListener("DOMContentLoaded", () => {
-      if (document.getElementsById("vs-winelist") || document.getElementsById("vs-wineclub")) {
-          vsSS.getContents();
+  if (vsSquarespace.isSquarespace()) {
+    vsSquarespace.vsPageWatch();
+    var list = document.getElementById("vs-winelist");
+    var club = document.getElementById("vs-wineclub");
+    
+    document.addEventListener("pageChange", () => {
+      if (list) {
+          vsWineList.init("vs-winelist");
       }
-  });
+      if (club) {
+        vsWineClub.init("vs-wineclub-signup");
+      }
+    });
+    document.addEventListener("DOMContentLoaded", () => {
+      if (list) {
+          vsWineList.init("vs-winelist");
+      }
+      if (club) {
+        vsWineClub.init("vs-wineclub-signup");
+      }
+    });
+  }
 }
 vsWineClub.init("vs-wineclub-signup");
 vsWineList.init("vs-winelist");
