@@ -544,6 +544,7 @@ vinoShipperInjector = (function(window) {
   module.qsParam = qsParam;
   module.injectFragmentFromServer = injectFragmentFromServer;
   module.cartInitialized = cartInitialized;
+  module.injectSquarespace = injectSquarespace;
   return module;
 })(window);
 
@@ -673,7 +674,7 @@ vsAddToCartButton = (function(window) {
 
 // Initialize the iframes
 window.onload = function() {
-  vinoShipperInjector.injectSquarespace;
+  vinoShipperInjector.injectSquarespace();
 }
 vsWineClub.init("vs-wineclub-signup");
 vsWineList.init("vs-winelist");
