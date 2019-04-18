@@ -34,4 +34,8 @@ vsSquarespace = (function(window, document) {
     });
     a.observe(document.body, { attributes: !0, attributeFilter: ["id"] });
   }
+  
+  module.vsPageWatch = vsPageWatch;
+  module.getContents = getContents;
+  return module;
 })(window, document);
