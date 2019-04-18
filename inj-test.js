@@ -534,7 +534,6 @@ vinoShipperInjector = (function(window) {
   module.qsParam = qsParam;
   module.injectFragmentFromServer = injectFragmentFromServer;
   module.cartInitialized = cartInitialized;
-  module.injectSquarespace = injectSquarespace;
   return module;
 })(window);
 
