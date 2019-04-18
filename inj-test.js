@@ -705,12 +705,11 @@ window.onload = (function(window) {
           vsWineClub.init("vs-wineclub-signup", 1);
       }
     });
-  } else {
-    vsWineClub.init("vs-wineclub-signup");
-    vsWineList.init("vs-winelist");
   }
 })(window);
 
+vsWineClub.init("vs-wineclub-signup");
+vsWineList.init("vs-winelist");
 vsAddToCartButton.init(".vs-add-to-cart");
 
 vinoShipperInjector.onReady(function() {
