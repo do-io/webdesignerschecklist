@@ -516,13 +516,13 @@ vinoShipperInjector = (function(window) {
         'document.addEventListener("pageChange", () => {' +
            'let path = window.location.pathname.split("/")[1];' +
            'if (path === "winelist" || path === "wineclub") {' +
-            'vsSS.getContents();' +
+            'vsSquarespace.getContents();' +
           '}' +
         '});' +
         'document.addEventListener("DOMContentLoaded", () => {' +
           'let path = window.location.pathname.split("/")[1];' +
           'if (path === "winelist" || path === "wineclub") {' +
-            'vsSS.getContents();' +
+            'vsSquarespace.getContents();' +
           '}' +
         '});' +
       '</script>';
