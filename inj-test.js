@@ -506,7 +506,13 @@ vinoShipperInjector = (function(window) {
   
   function injectSquarespace() {
     if ( ( document.getElementsByTagName('head')[0].innerHTML.search("<!-- This is Squarespace. -->") ) > -1 ) {
-      console.log('`This is Squarespace` found');
+      console.log('Squarespace found');
+      (function(d,s) {
+        var f = d.getElementsByTagName(s)[0];
+        var j = d.createElement(s);
+        j.src   = config.server + "/static/injector/squarespace-ajax-plugin.js";
+        f.parentNode.insertBefore(j,f);
+      })(document,"script");
     }
     
 //     var container = containerId ? document.getElementById(containerId) : document.getElementsByTagName("body")[0];
