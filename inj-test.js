@@ -705,14 +705,14 @@ window.onload = (function(window) {
           vsWineClub.init("vs-wineclub-signup");
       }
     });
-    document.addEventListener("DOMContentLoaded", function () {
-      if (document.getElementById("vs-winelist")) {
-          vsWineList.init("vs-winelist");
-      }
-      if (document.getElementById("vs-wineclub")) {
-          vsWineClub.init("vs-wineclub-signup");
-      }
-    });
+//     document.addEventListener("DOMContentLoaded", function () {
+//       if (document.getElementById("vs-winelist")) {
+//           vsWineList.init("vs-winelist");
+//       }
+//       if (document.getElementById("vs-wineclub")) {
+//           vsWineClub.init("vs-wineclub-signup");
+//       }
+//     });
   }
 })(window);
 vsWineClub.init("vs-wineclub-signup");
