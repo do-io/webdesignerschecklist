@@ -1,5 +1,4 @@
-"use strict";
-vsSquarespace = (function(window, document) {
+vsSquarespace = (function(window) {
   var targetId = window.vsWineryId,
     type = window.type;
 
@@ -34,8 +33,7 @@ vsSquarespace = (function(window, document) {
     });
     a.observe(document.body, { attributes: !0, attributeFilter: ["id"] });
   }
-  
   module.vsPageWatch = vsPageWatch;
   module.getContents = getContents;
   return module;
-})(window, document);
+})(window);
