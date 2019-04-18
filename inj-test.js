@@ -694,7 +694,7 @@ vsSquarespace = (function(window) {
 })(window);
 
 // Initialize the iframes
-window.onload = function() {
+window.onload = (function(window) {
   if (vsSquarespace.isSquarespace()) {
     vsSquarespace.vsPageWatch();
     var list = document.getElementById("vs-winelist");
@@ -705,7 +705,7 @@ window.onload = function() {
           vsWineList.init("vs-winelist");
       }
       if (club) {
-        vsWineClub.init("vs-wineclub-signup");
+          vsWineClub.init("vs-wineclub-signup");
       }
     });
     document.addEventListener("DOMContentLoaded", function () {
@@ -713,11 +713,11 @@ window.onload = function() {
           vsWineList.init("vs-winelist");
       }
       if (club) {
-        vsWineClub.init("vs-wineclub-signup");
+          vsWineClub.init("vs-wineclub-signup");
       }
     });
   }
-}
+})(window);
 vsWineClub.init("vs-wineclub-signup");
 vsWineList.init("vs-winelist");
 vsAddToCartButton.init(".vs-add-to-cart");
