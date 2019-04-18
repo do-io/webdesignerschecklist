@@ -7,17 +7,8 @@ vsSquarespace = (function(window) {
     if (document.getElementById("vs-winelist")) {
       vsWineList.init("vs-winelist");
     }
-
     if (document.getElementById("vs-wineclub")) {
       vsWineClub.init("vs-wineclub");
-    }
-    switch (type) {
-      case "club":
-        vsWineClub.init(targetId);
-        break;
-      case "list":
-        vsWineList.init(targetId);
-        break;
     }
   }
 
