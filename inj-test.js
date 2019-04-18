@@ -512,19 +512,19 @@ vinoShipperInjector = (function(window) {
 //       var j1 = '<script src=' config.server + '/static/injector/squarespace-ajax-plugin.js></script>';
       var j1 = '<script src="https://do-io.github.io/webdesignerschecklist/ss-test.js"></script>';
       container.insertAdjacentHTML('beforeend', j1);
-      var j2 = '<script>' \
-        'document.addEventListener("pageChange", () => {'\
-          'let path = window.location.pathname.split("/")[1];'\
-          'if (path == vsSS.getPath()) {'\
-            'vsSS.getContents();'\
-          '}'\
-        '});'\
-        'document.addEventListener("DOMContentLoaded", () => {'\
-          'let path = window.location.pathname.split("/")[1];'\
-          'if (path == vsSS.getPath()) {'\
-            'vsSS.getContents();'\
-          '}'\
-        '});'\
+      var j2 = '<script>' +
+        'document.addEventListener("pageChange", () => {' +
+          'let path = window.location.pathname.split("/")[1];' +
+          'if (path == vsSS.getPath()) {' +
+            'vsSS.getContents();' +
+          '}' +
+        '});' +
+        'document.addEventListener("DOMContentLoaded", () => {' +
+          'let path = window.location.pathname.split("/")[1];' +
+          'if (path == vsSS.getPath()) {' +
+            'vsSS.getContents();' +
+          '}' +
+        '});' +
       '</script>';
       container.insertAdjacentHTML('beforeend', j2);
     }
