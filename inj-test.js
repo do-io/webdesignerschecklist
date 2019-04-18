@@ -505,7 +505,7 @@ vinoShipperInjector = (function(window) {
     }
   }
   
-  function injectSquarespace() {
+  function injectSquarespace(callback) {
     if ( ( document.getElementsByTagName('head')[0].innerHTML.search("<!-- This is Squarespace. -->") ) > -1 ) {
       console.log('Squarespace found');
       var container = document.getElementsByTagName('body')[0];
@@ -527,6 +527,7 @@ vinoShipperInjector = (function(window) {
         '});' +
       '</script>';
       container.insertAdjacentHTML('beforeend', j2);
+      callback();
     }
   }
 
@@ -538,6 +539,7 @@ vinoShipperInjector = (function(window) {
       (function(callback) {
         injectCss(config.injectorCss);
         initGoogle(callback);
+        injectSquarespace(callback);
       })(callback);
     });
   };
@@ -688,10 +690,9 @@ vsAddToCartButton = (function(window) {
 })(window);
 
 // Initialize the iframes
-window.onload = function() {
-  vinoShipperInjector.injectSquarespace();
-
-}
+// window.onload = function() {
+//   vinoShipperInjector.injectSquarespace();
+// }
 vsWineClub.init("vs-wineclub-signup");
 vsWineList.init("vs-winelist");
 vsAddToCartButton.init(".vs-add-to-cart");
