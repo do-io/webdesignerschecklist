@@ -514,14 +514,14 @@ vinoShipperInjector = (function(window) {
       container.insertAdjacentHTML('beforeend', j1);
       var j2 = '<script>' +
         'document.addEventListener("pageChange", () => {' +
-          'let path = window.location.pathname.split("/")[1];' +
-          'if (path == vsSS.getPath()) {' +
+           'let path = window.location.pathname.split("/")[1];' +
+           'if (path === "winelist" || path === "wineclub") {' +
             'vsSS.getContents();' +
           '}' +
         '});' +
         'document.addEventListener("DOMContentLoaded", () => {' +
           'let path = window.location.pathname.split("/")[1];' +
-          'if (path == vsSS.getPath()) {' +
+          'if (path === "winelist" || path === "wineclub") {' +
             'vsSS.getContents();' +
           '}' +
         '});' +
