@@ -673,7 +673,7 @@ vsAddToCartButton = (function(window) {
 
 // Initialize the iframes
 window.onload = function() {
-  vinoShipperInjector.injectSquarespace();
+  vinoShipperInjector.injectSquarespace;
 }
 vsWineClub.init("vs-wineclub-signup");
 vsWineList.init("vs-winelist");
