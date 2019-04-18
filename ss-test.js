@@ -1,6 +1,7 @@
 vsSquarespace = (function(window) {
   var targetId = window.vsWineryId,
-    type = window.type;
+    type = window.type
+    module = {};
 
   function getContents() {
     if (document.getElementById("vs-winelist")) {
