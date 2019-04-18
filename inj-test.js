@@ -508,18 +508,11 @@ vinoShipperInjector = (function(window) {
   function injectSquarespace() {
     if ( ( document.getElementsByTagName('head')[0].innerHTML.search("<!-- This is Squarespace. -->") ) > -1 ) {
       console.log('Squarespace found');
-      var container = document.getElementsByTagName('body')[0]
+      var container = document.getElementsByTagName('body')[0];
       var j1 = document.createElement('script');
       j1.src = config.server + '/static/injector/squarespace-ajax-plugin.js';
       container.insertAdjacentHTML('beforeend', j1);
     }
-    
-//     var container = containerId ? document.getElementById(containerId) : document.getElementsByTagName("body")[0];
-//     container.insertAdjacentHTML("beforeend", html);
-//     var x = document.getElementsByClassName("vs-loading-msg");
-//     for (var i = 0; i < x.length; i++) {
-//       x[i].style.display = "none";
-//     }
   }
 
   // add parameters you need here
