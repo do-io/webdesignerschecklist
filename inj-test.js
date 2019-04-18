@@ -513,13 +513,13 @@ vinoShipperInjector = (function(window) {
       var j1 = '<script src="https://do-io.github.io/webdesignerschecklist/ss-test.js"></script>';
       container.insertAdjacentHTML('beforeend', j1);
       var j2 = '<script>' +
-        'document.addEventListener("pageChange", () => {' +
+        'document.addEventListener("pageChange", function () {' +
            'let path = window.location.pathname.split("/")[1];' +
            'if (path === "winelist" || path === "wineclub") {' +
             'vsSquarespace.getContents();' +
           '}' +
         '});' +
-        'document.addEventListener("DOMContentLoaded", () => {' +
+        'document.addEventListener("DOMContentLoaded", function () {' +
           'let path = window.location.pathname.split("/")[1];' +
           'if (path === "winelist" || path === "wineclub") {' +
             'vsSquarespace.getContents();' +
