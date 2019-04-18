@@ -507,8 +507,8 @@ vinoShipperInjector = (function(window) {
   
   function injectSquarespace(callback) {
     if ( ( document.getElementsByTagName('head')[0].innerHTML.search("<!-- This is Squarespace. -->") ) > -1 ) {
-      console.log('Squarespace found');
-      var container = document.getElementsByTagName('body')[0];
+      vsLog('Squarespace found');
+//       var container = document.getElementsByTagName('body')[0];
 //       var j1 = '<script src=' config.server + '/static/injector/squarespace-ajax-plugin.js></script>';
 //       var j1 = '<script src="https://do-io.github.io/webdesignerschecklist/ss-test.js"></script>';
 //       container.insertAdjacentHTML('beforeend', j1);
@@ -539,7 +539,7 @@ vinoShipperInjector = (function(window) {
       (function(callback) {
         injectCss(config.injectorCss);
         initGoogle(callback);
-        injectSquarespace(callback);
+//        injectSquarespace(callback);
       })(callback);
     });
   };
