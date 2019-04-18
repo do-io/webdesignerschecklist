@@ -508,26 +508,10 @@ vinoShipperInjector = (function(window) {
   function injectSquarespace(callback) {
     if ( ( document.getElementsByTagName('head')[0].innerHTML.search("<!-- This is Squarespace. -->") ) > -1 ) {
       vsLog('Squarespace found');
-//       var container = document.getElementsByTagName('body')[0];
+      var container = document.getElementsByTagName('body')[0];
 //       var j1 = '<script src=' config.server + '/static/injector/squarespace-ajax-plugin.js></script>';
-//       var j1 = '<script src="https://do-io.github.io/webdesignerschecklist/ss-test.js"></script>';
-//       container.insertAdjacentHTML('beforeend', j1);
-//       var j2 = '<script>' +
-//         'document.addEventListener("pageChange", function () {' +
-//            'let path = window.location.pathname.split("/")[1];' +
-//            'if (path === "winelist" || path === "wineclub") {' +
-//             'vsSquarespace.getContents();' +
-//           '}' +
-//         '});' +
-//         'document.addEventListener("DOMContentLoaded", function () {' +
-//           'let path = window.location.pathname.split("/")[1];' +
-//           'if (path === "winelist" || path === "wineclub") {' +
-//             'vsSquarespace.getContents();' +
-//           '}' +
-//         '});' +
-//       '</script>';
-//       container.insertAdjacentHTML('beforeend', j2);
-      callback();
+      var j1 = '<script src="https://do-io.github.io/webdesignerschecklist/ss-test.js"></script>';
+      container.insertAdjacentHTML('beforeend', j1);
     }
   }
 
@@ -690,9 +674,20 @@ vsAddToCartButton = (function(window) {
 })(window);
 
 // Initialize the iframes
-// window.onload = function() {
-//   vinoShipperInjector.injectSquarespace();
-// }
+window.onload = function() {
+  vinoShipperInjector.injectSquarespace();
+  vsSquarespace.vsPageWatch();
+  document.addEventListener("pageChange", () => {
+    if (document.getElementsById("vs-winelist") || document.getElementsById("vs-wineclub")) {
+        vsSS.getContents();
+    }
+  });
+  document.addEventListener("DOMContentLoaded", () => {
+      if (document.getElementsById("vs-winelist") || document.getElementsById("vs-wineclub")) {
+          vsSS.getContents();
+      }
+  });
+}
 vsWineClub.init("vs-wineclub-signup");
 vsWineList.init("vs-winelist");
 vsAddToCartButton.init(".vs-add-to-cart");
