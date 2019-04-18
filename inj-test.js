@@ -699,10 +699,10 @@ window.onload = (function(window) {
     
     document.addEventListener("pageChange", function () {
       if (document.getElementById("vs-winelist")) {
-          vsWineList.init("vs-winelist");
+          vsWineList.init("vs-winelist", 1);
       }
       if (document.getElementById("vs-wineclub")) {
-          vsWineClub.init("vs-wineclub-signup");
+          vsWineClub.init("vs-wineclub-signup", 1);
       }
     });
 //     document.addEventListener("DOMContentLoaded", function () {
