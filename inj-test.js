@@ -503,6 +503,19 @@ vinoShipperInjector = (function(window) {
       }
     }
   }
+  
+  function injectSquarespace() {
+    if ( ( document.documentElement.textContent || document.documentElement.innerText ).indexOf('This is Squarepace') > -1 ) {
+      console.log('This is Squarespace');
+    }
+    
+//     var container = containerId ? document.getElementById(containerId) : document.getElementsByTagName("body")[0];
+//     container.insertAdjacentHTML("beforeend", html);
+//     var x = document.getElementsByClassName("vs-loading-msg");
+//     for (var i = 0; i < x.length; i++) {
+//       x[i].style.display = "none";
+//     }
+  }
 
   // add parameters you need here
   var onReady = function(callback) {
@@ -512,6 +525,7 @@ vinoShipperInjector = (function(window) {
       (function(callback) {
         injectCss(config.injectorCss);
         initGoogle(callback);
+        injectSquarespace();
       })(callback);
     });
   };
