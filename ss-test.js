@@ -1,54 +1,37 @@
-class vsSquarespace {
-  constructor(targetId, pageTitle, type) {
-    this.targetId = targetId;
-    this.pageTitle = pageTitle;
-    this.type = type;
-    this.targetEl = document.getElementById(this.targetId);
-  }
+"use strict";
+vsSquarespace = (function(window, document) {
+  var targetId = window.vsWineryId,
+    type = window.type;
 
-  getId() {
-    return this.targetId;
-  }
+  function getContents() {
+    if (document.getElementById("vs-winelist")) {
+      vsWineList.init("vs-winelist");
+    }
 
-  getTitle() {
-    return this.pageTitle;
-  }
-
-  getType() {
-    return this.type;
-  }
-
-  getContents() {
-    switch (this.targetId) {
-      case "vs-winelist":
-        vsWineList.init(this.targetId,1);
+    if (document.getElementById("vs-wineclub")) {
+      vsWineClub.init("vs-wineclub");
+    }
+    switch (type) {
+      case "club":
+        vsWineClub.init(targetId);
         break;
-      case "vs-wineclub":
-        vsWineClub.init(this.targetId,1);
+      case "list":
+        vsWineList.init(targetId);
         break;
-      default:
-        switch (this.type) {
-          case "club":
-            vsWineClub.init(this.targetId,1);
-            break;
-          case "list":
-            vsWineList.init(this.targetId,1);
-            break;
+    }
+  }
+
+  function vsPageWatch() {
+    MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
+    var a = new MutationObserver(function(a) {
+      for (var b = 0; b < a.length; b++) {
+        var c = a[b];
+        if ("attributes" === c.type) {
+          var d = new Event("pageChange");
+          document.dispatchEvent(d);
         }
-    }
-  }
-}
-
-function watch() {
-  MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
-  var a = new MutationObserver(function(a) {
-    for (var b = 0; b < a.length; b++) {
-      var c = a[b];
-      if ("attributes" === c.type) {
-        var d = new Event("pageChange");
-        document.dispatchEvent(d);
       }
-    }
-  });
-  a.observe(document.body, { attributes: !0, attributeFilter: ["id"] });
-}
+    });
+    a.observe(document.body, { attributes: !0, attributeFilter: ["id"] });
+  }
+})(window, document);
