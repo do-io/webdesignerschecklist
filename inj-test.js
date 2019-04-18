@@ -700,7 +700,7 @@ window.onload = function() {
     var list = document.getElementById("vs-winelist");
     var club = document.getElementById("vs-wineclub");
     
-    document.addEventListener("pageChange", () => {
+    document.addEventListener("pageChange", function () {
       if (list) {
           vsWineList.init("vs-winelist");
       }
@@ -708,7 +708,7 @@ window.onload = function() {
         vsWineClub.init("vs-wineclub-signup");
       }
     });
-    document.addEventListener("DOMContentLoaded", () => {
+    document.addEventListener("DOMContentLoaded", function () {
       if (list) {
           vsWineList.init("vs-winelist");
       }
