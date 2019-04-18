@@ -505,8 +505,8 @@ vinoShipperInjector = (function(window) {
   }
   
   function injectSquarespace() {
-    if ( ( document.documentElement.textContent || document.documentElement.innerText ).indexOf('This is Squarepace') > -1 ) {
-      console.log('This is Squarespace');
+    if ( ( document.getElementsByTagName('head')[0].innerHTML.search("<!-- This is Squarespace. -->") ) > -1 ) {
+      console.log('`This is Squarespace` found');
     }
     
 //     var container = containerId ? document.getElementById(containerId) : document.getElementsByTagName("body")[0];
