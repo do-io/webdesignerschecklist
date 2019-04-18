@@ -523,7 +523,6 @@ vinoShipperInjector = (function(window) {
       (function(callback) {
         injectCss(config.injectorCss);
         initGoogle(callback);
-        injectSquarespace();
       })(callback);
     });
   };
@@ -673,6 +672,9 @@ vsAddToCartButton = (function(window) {
 })(window);
 
 // Initialize the iframes
+window.onload = function() {
+  injectSquarespace();
+}
 vsWineClub.init("vs-wineclub-signup");
 vsWineList.init("vs-winelist");
 vsAddToCartButton.init(".vs-add-to-cart");
