@@ -688,7 +688,7 @@ vsSquarespace = (function(window) {
     });
     a.observe(document.body, { attributes: !0, attributeFilter: ["id"] });
   }
-  module.vsSquarespace = isSquarespace;
+  module.isSquarespace = isSquarespace;
   module.vsPageWatch = vsPageWatch;
   return module;
 })(window);
