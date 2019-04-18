@@ -673,8 +673,6 @@ vsSquarespace = (function(window) {
     }
   }
 
-  
-
   function vsPageWatch() {
     MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
     var a = new MutationObserver(function(a) {
@@ -688,6 +686,7 @@ vsSquarespace = (function(window) {
     });
     a.observe(document.body, { attributes: !0, attributeFilter: ["id"] });
   }
+
   module.isSquarespace = isSquarespace;
   module.vsPageWatch = vsPageWatch;
   return module;
@@ -697,22 +696,20 @@ vsSquarespace = (function(window) {
 window.onload = (function(window) {
   if (vsSquarespace.isSquarespace()) {
     vsSquarespace.vsPageWatch();
-    var list = document.getElementById("vs-winelist");
-    var club = document.getElementById("vs-wineclub");
     
     document.addEventListener("pageChange", function () {
-      if (list) {
+      if (document.getElementById("vs-winelist")) {
           vsWineList.init("vs-winelist");
       }
-      if (club) {
+      if (document.getElementById("vs-wineclub")) {
           vsWineClub.init("vs-wineclub-signup");
       }
     });
     document.addEventListener("DOMContentLoaded", function () {
-      if (list) {
+      if (document.getElementById("vs-winelist")) {
           vsWineList.init("vs-winelist");
       }
-      if (club) {
+      if (document.getElementById("vs-wineclub")) {
           vsWineClub.init("vs-wineclub-signup");
       }
     });
