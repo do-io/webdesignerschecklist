@@ -5,6 +5,8 @@ gems and packages (gems require ruby 2.1.2)
 $ bundle install && bower install && npm install
 ```
 
+this is seen at [https://do-io.github.io/webdesignerschecklist/](https://do-io.github.io/webdesignerschecklist/)
+
 ## Development
 
 **working files are within the ``app`` dir**
