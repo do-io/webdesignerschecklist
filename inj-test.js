@@ -704,6 +704,9 @@ window.onload = (function(window) {
       if (document.getElementById("vs-wineclub")) {
           vsWineClub.init("vs-wineclub-signup", 1);
       }
+      if (document.getElementsByClassName('vs-add-to-cart')) {
+          vsAddToCartButton.init('.vs-add-to-cart', 1);
+      }
     });
   }
 })(window);
