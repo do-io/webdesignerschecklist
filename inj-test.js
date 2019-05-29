@@ -470,10 +470,13 @@ vinoShipperInjector = (function(window) {
       hideCart();
     } else if (message.data.indexOf("iframe-height:") >= 0) {
       var height = message.data.split(":")[1];
+      console.info('initial.height',height);
       if (!config.disableResize) {
         height = parseInt(height) + module.padding;
         document.getElementById("vs-iframe").parentNode.style.height = height + "px";
+        console.info('disableResize.height',height);
       }
+      console.info('after.height',height);
     } else if (message.data.indexOf("height:") >= 0) {
       resizeContentIframe(message.data.split(":")[1]);
     } else if (message.data.indexOf("clubSignUpComplete") >= 0) {
