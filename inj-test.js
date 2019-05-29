@@ -517,7 +517,7 @@ vinoShipperInjector = (function(window) {
     });
   };
 
-  // window.addEventListener ? window.addEventListener("message", onMessage) : window.attachEvent("onmessage", onMessage);
+  document.addEventListener ? document.addEventListener("message", onMessage) : document.attachEvent("onmessage", onMessage);
 
   var sessionid = "${cart.cartId}";
   "postMessage" in parent && parent.postMessage("canHazPostMessage:" + sessionid, "*");
@@ -534,7 +534,6 @@ vinoShipperInjector = (function(window) {
   module.qsParam = qsParam;
   module.injectFragmentFromServer = injectFragmentFromServer;
   module.cartInitialized = cartInitialized;
-  module.onMessage = onMessage;
   return module;
 })(window);
 
@@ -708,7 +707,6 @@ window.onload = (function(window) {
       if (document.getElementsByClassName('vs-add-to-cart')) {
           vsAddToCartButton.init('.vs-add-to-cart', 1);
       }
-      window.addEventListener ? window.addEventListener("message", onMessage) : window.attachEvent("onmessage", onMessage);
     });
   }
 })(window);
