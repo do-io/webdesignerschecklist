@@ -548,7 +548,7 @@ vsWineList = (function(window) {
         var cssFile = window.vsCssUrl || "";
         var listId = window.vsWineListId || "";
         var bustCache = window.vsBustCache || false;
-
+        console.info('vsWineList.init');
         if (document.getElementById(container)) {
           var iframe = vinoShipperInjector.outerIFrame("/iframe/v2/wine-list", cssFile, null, {
             wineryId: wineryId,
@@ -685,7 +685,6 @@ vsSquarespace = (function(window) {
         }
       }
     });
-    console.info('PageWatch');
     a.observe(document.body, { attributes: !0, attributeFilter: ["id"] });
   }
 
