@@ -513,11 +513,11 @@ vinoShipperInjector = (function(window) {
       (function(callback) {
         injectCss(config.injectorCss);
         initGoogle(callback);
-        // window.addEventListener ? window.addEventListener("message", onMessage) : window.attachEvent("onmessage", onMessage);
-        onMessage();
       })(callback);
     });
   };
+
+  // window.addEventListener ? window.addEventListener("message", onMessage) : window.attachEvent("onmessage", onMessage);
 
   var sessionid = "${cart.cartId}";
   "postMessage" in parent && parent.postMessage("canHazPostMessage:" + sessionid, "*");
@@ -534,6 +534,7 @@ vinoShipperInjector = (function(window) {
   module.qsParam = qsParam;
   module.injectFragmentFromServer = injectFragmentFromServer;
   module.cartInitialized = cartInitialized;
+  module.onMessage = onMessage;
   return module;
 })(window);
 
@@ -707,6 +708,7 @@ window.onload = (function(window) {
       if (document.getElementsByClassName('vs-add-to-cart')) {
           vsAddToCartButton.init('.vs-add-to-cart', 1);
       }
+      onMessage();
     });
   }
 })(window);
