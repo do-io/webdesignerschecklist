@@ -520,8 +520,6 @@ vinoShipperInjector = (function(window) {
   var sessionid = "${cart.cartId}";
   "postMessage" in parent && parent.postMessage("canHazPostMessage:" + sessionid, "*");
 
-  window.addEventListener ? window.addEventListener("message", onMessage) : window.attachEvent("onmessage", onMessage);
-
   //Public functions
   module.sessionid = "";
   module.onReady = onReady;
@@ -694,6 +692,8 @@ vsSquarespace = (function(window) {
 
 // Initialize the iframes
 window.onload = (function(window) {
+  window.addEventListener ? window.addEventListener("message", onMessage) : window.attachEvent("onmessage", onMessage);
+
   if (vsSquarespace.isSquarespace()) {
     vsSquarespace.vsPageWatch();
     
