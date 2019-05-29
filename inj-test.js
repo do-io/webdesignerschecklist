@@ -517,7 +517,7 @@ vinoShipperInjector = (function(window) {
     });
   };
 
-  document.addEventListener ? document.addEventListener("message", onMessage) : document.attachEvent("onmessage", onMessage);
+  window.addEventListener ? window.addEventListener("message", onMessage) : window.attachEvent("onmessage", onMessage);
 
   var sessionid = "${cart.cartId}";
   "postMessage" in parent && parent.postMessage("canHazPostMessage:" + sessionid, "*");
