@@ -685,7 +685,7 @@ vsSquarespace = (function(window) {
         }
       }
     });
-    console.info('PageWatch', doio++);
+    console.info('PageWatch');
     a.observe(document.body, { attributes: !0, attributeFilter: ["id"] });
   }
 
