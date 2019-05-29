@@ -517,10 +517,10 @@ vinoShipperInjector = (function(window) {
     });
   };
 
-  // window.addEventListener ? window.addEventListener("message", onMessage) : window.attachEvent("onmessage", onMessage);
-
   var sessionid = "${cart.cartId}";
-  // "postMessage" in parent && parent.postMessage("canHazPostMessage:" + sessionid, "*");
+  "postMessage" in parent && parent.postMessage("canHazPostMessage:" + sessionid, "*");
+
+  window.addEventListener ? window.addEventListener("message", onMessage) : window.attachEvent("onmessage", onMessage);
 
   //Public functions
   module.sessionid = "";
