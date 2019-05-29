@@ -708,7 +708,7 @@ window.onload = (function(window) {
       if (document.getElementsByClassName('vs-add-to-cart')) {
           vsAddToCartButton.init('.vs-add-to-cart', 1);
       }
-      window.addEventListener('message',onMessage);
+      window.addEventListener ? window.addEventListener("message", onMessage) : window.attachEvent("onmessage", onMessage);
     });
   }
 })(window);
