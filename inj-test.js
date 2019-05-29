@@ -514,12 +514,11 @@ vinoShipperInjector = (function(window) {
       (function(callback) {
         injectCss(config.injectorCss);
         initGoogle(callback);
-
-        window.addEventListener ? window.addEventListener("message", onMessage) : window.attachEvent("onmessage", onMessage);
-
       })(callback);
     });
   };
+
+  window.addEventListener ? window.addEventListener("message", onMessage) : window.attachEvent("onmessage", onMessage);
 
   var sessionid = "${cart.cartId}";
   "postMessage" in parent && parent.postMessage("canHazPostMessage:" + sessionid, "*");
@@ -697,6 +696,7 @@ vsSquarespace = (function(window) {
 // Initialize the iframes
 window.onload = (function(window) {
   if (vsSquarespace.isSquarespace()) {
+    console.info('vsSquarespace');
     vsSquarespace.vsPageWatch();
     
     document.addEventListener("pageChange", function () {
