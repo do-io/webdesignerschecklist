@@ -470,6 +470,7 @@ vinoShipperInjector = (function(window) {
       hideCart();
     } else if (message.data.indexOf("iframe-height:") >= 0) {
       var height = message.data.split(":")[1];
+      console.log(height);
       if (!config.disableResize) {
         height = parseInt(height) + module.padding;
         document.getElementById("vs-iframe").parentNode.style.height = height + "px";
