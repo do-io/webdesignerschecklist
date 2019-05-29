@@ -712,15 +712,18 @@ window.onload = (function(window) {
           vsAddToCartButton.init('.vs-add-to-cart', 1);
       }
     });
+  } else {
+    vsWineClub.init("vs-wineclub-signup");
+    vsWineList.init("vs-winelist");
+    vsAddToCartButton.init(".vs-add-to-cart");
+
+    vinoShipperInjector.onReady(function() {
+      if (!vinoShipperInjector.cartInitialized && !vsWineClub.initialized()) {
+        vinoShipperInjector.initCart();
+      }
+    });
+
   }
+
 })(window);
 
-vsWineClub.init("vs-wineclub-signup");
-vsWineList.init("vs-winelist");
-vsAddToCartButton.init(".vs-add-to-cart");
-
-vinoShipperInjector.onReady(function() {
-  if (!vinoShipperInjector.cartInitialized && !vsWineClub.initialized()) {
-    vinoShipperInjector.initCart();
-  }
-});
