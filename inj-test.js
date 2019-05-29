@@ -470,7 +470,6 @@ vinoShipperInjector = (function(window) {
       hideCart();
     } else if (message.data.indexOf("iframe-height:") >= 0) {
       var height = message.data.split(":")[1];
-      console.log(height);
       if (!config.disableResize) {
         height = parseInt(height) + module.padding;
         document.getElementById("vs-iframe").parentNode.style.height = height + "px";
@@ -548,7 +547,7 @@ vsWineList = (function(window) {
         var cssFile = window.vsCssUrl || "";
         var listId = window.vsWineListId || "";
         var bustCache = window.vsBustCache || false;
-        console.info('vsWineList.init');
+
         if (document.getElementById(container)) {
           var iframe = vinoShipperInjector.outerIFrame("/iframe/v2/wine-list", cssFile, null, {
             wineryId: wineryId,
@@ -696,7 +695,6 @@ vsSquarespace = (function(window) {
 // Initialize the iframes
 window.onload = (function(window) {
   if (vsSquarespace.isSquarespace()) {
-    console.info('peach space');
     vsSquarespace.vsPageWatch();
     
     document.addEventListener("pageChange", function () {
@@ -714,7 +712,7 @@ window.onload = (function(window) {
 })(window);
 
 vsWineClub.init("vs-wineclub-signup");
-vsWineList.init("vs-winelist");
+vsWineList.init("vs-winelist", 1);
 vsAddToCartButton.init(".vs-add-to-cart");
 
 vinoShipperInjector.onReady(function() {
