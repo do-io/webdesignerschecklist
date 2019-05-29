@@ -513,14 +513,13 @@ vinoShipperInjector = (function(window) {
       (function(callback) {
         injectCss(config.injectorCss);
         initGoogle(callback);
+        window.addEventListener ? window.addEventListener("message", onMessage) : window.attachEvent("onmessage", onMessage);
       })(callback);
     });
   };
 
   var sessionid = "${cart.cartId}";
   "postMessage" in parent && parent.postMessage("canHazPostMessage:" + sessionid, "*");
-
-  // window.addEventListener ? window.addEventListener("message", onMessage) : window.attachEvent("onmessage", onMessage);
 
   //Public functions
   module.sessionid = "";
