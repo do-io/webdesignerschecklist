@@ -696,7 +696,7 @@ vsSquarespace = (function(window) {
 // Initialize the iframes
 window.onload = (function(window) {
   if (vsSquarespace.isSquarespace()) {
-    console.info('vsSquarespace');
+    console.info('peach space');
     vsSquarespace.vsPageWatch();
     
     document.addEventListener("pageChange", function () {
