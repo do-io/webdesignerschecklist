@@ -692,7 +692,7 @@ vsSquarespace = (function(window) {
 
 // Initialize the iframes
 window.onload = (function(window) {
-  window.addEventListener ? window.addEventListener("message", onMessage) : window.attachEvent("onmessage", onMessage);
+  // window.addEventListener ? window.addEventListener("message", onMessage) : window.attachEvent("onmessage", onMessage);
 
   if (vsSquarespace.isSquarespace()) {
     vsSquarespace.vsPageWatch();
