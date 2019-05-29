@@ -514,7 +514,7 @@ vinoShipperInjector = (function(window) {
         injectCss(config.injectorCss);
         initGoogle(callback);
         // window.addEventListener ? window.addEventListener("message", onMessage) : window.attachEvent("onmessage", onMessage);
-        window.addEventListener('message',onMessage);
+        onMessage();
       })(callback);
     });
   };
