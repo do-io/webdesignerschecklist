@@ -709,10 +709,11 @@ window.onload = (function(window) {
       }
     });
   }
+  console.info('end onload');
 })(window);
 
 vsWineClub.init("vs-wineclub-signup");
-vsWineList.init("vs-winelist", 1);
+vsWineList.init("vs-winelist");
 vsAddToCartButton.init(".vs-add-to-cart");
 
 vinoShipperInjector.onReady(function() {
