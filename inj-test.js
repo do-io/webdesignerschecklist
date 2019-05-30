@@ -703,28 +703,26 @@ window.onload = (function(window) {
     
     document.addEventListener("pageChange", function () {
       if (document.getElementById("vs-winelist")) {
-          vsWineList.init("vs-winelist");
+          vsWineList.init("vs-winelist", 1);
       }
       if (document.getElementById("vs-wineclub")) {
-          vsWineClub.init("vs-wineclub-signup");
+          vsWineClub.init("vs-wineclub-signup", 1);
       }
       if (document.getElementsByClassName('vs-add-to-cart')) {
-          vsAddToCartButton.init('.vs-add-to-cart');
+          vsAddToCartButton.init('.vs-add-to-cart', 1);
       }
     });
-  } else {
-    // Initialize the iframes
-    vsWineClub.init('vs-wineclub-signup');
-    vsWineList.init('vs-winelist');
-    vsAddToCartButton.init('.vs-add-to-cart');
-
-    vinoShipperInjector.onReady(function () {
-        if (!vinoShipperInjector.cartInitialized && !vsWineClub.initialized()) {
-            vinoShipperInjector.initCart();
-        }
-    });
-
   }
 
+  vsWineClub.init("vs-wineclub-signup");
+  vsWineList.init("vs-winelist");
+  vsAddToCartButton.init(".vs-add-to-cart");
+  
+  vinoShipperInjector.onReady(function() {
+    if (!vinoShipperInjector.cartInitialized && !vsWineClub.initialized()) {
+      vinoShipperInjector.initCart();
+    }
+  });
+  
 })(window);
 
